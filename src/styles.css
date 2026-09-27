@@ -98,8 +98,8 @@
   --shadow-glow: 0 0 0 1px color-mix(in oklab, var(--rose) 35%, transparent),
     0 0 42px -8px color-mix(in oklab, var(--rose) 45%, transparent);
   --paper-texture: radial-gradient(
-      color-mix(in oklab, var(--plum) 6%, transparent) 0.5px,
-      transparent 0.6px
+      color-mix(in oklab, var(--plum) 3%, transparent) 0.4px,
+      transparent 0.5px
     );
 }
 
