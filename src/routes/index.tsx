@@ -1,24 +1,53 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { FinalSection } from "@/components/FinalSection";
+import { Hero } from "@/components/Hero";
+import { IntroLockScreen } from "@/components/IntroLockScreen";
+import { MusicSection } from "@/components/MusicSection";
+import { PhotoSection } from "@/components/PhotoSection";
+import { PoetrySection } from "@/components/PoetrySection";
+import { SecretEnvelope } from "@/components/SecretEnvelope";
+import { Timeline } from "@/components/Timeline";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Ja — A little place I made for you" },
+      {
+        name: "description",
+        content:
+          "A private digital love letter for Ja: poems, photographs, our story, and one song. Made by Qemz.",
+      },
+      { property: "og:title", content: "Ja — A little place I made for you" },
+      {
+        property: "og:description",
+        content:
+          "A private digital love letter for Ja: poems, photographs, our story, and one song. Made by Qemz.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const [entered, setEntered] = useState(false);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="min-h-screen overflow-x-hidden">
+      {!entered ? <IntroLockScreen onEnter={() => setEntered(true)} /> : null}
+      {entered ? (
+        <div className="animate-soft-in">
+          <Hero />
+          <PoetrySection />
+          <PhotoSection />
+          <Timeline />
+          <MusicSection />
+          <SecretEnvelope />
+          <FinalSection />
+        </div>
+      ) : null}
+    </main>
   );
 }
