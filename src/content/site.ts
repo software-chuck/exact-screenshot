@@ -8,8 +8,8 @@
 
 /** Drop your files into /public/images and /public/audio with these names. */
 export const assets = {
-  jaProfile: "/images/ja-1.jpg",
-  jaMemory: "/images/ja-2.jpg",
+  jaProfile: "/images/ja-1.jpeg",
+  jaMemory: "/images/ja-2.jpeg",
   ourSong: "/audio/our-song.mp3",
 };
 
