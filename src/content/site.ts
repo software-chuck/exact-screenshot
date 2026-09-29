@@ -30,7 +30,8 @@ export const poetry = {
   subtitle: "So I turned them into poems instead.",
   tabs: ["Poem \u2661", "Poem II \u2661"],
   /** Paste your real poems here. Line breaks are preserved. */
-  poem1: `Some hearts announce themselves like thunder,
+  poem1: `
+Some hearts announce themselves like thunder,
 loud and sudden, hard to miss—
 but yours crept in the way morning light does,
 quiet, warm, and hard to resist.
